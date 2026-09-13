@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are You Scam-Proof? Take the Quiz — FinSecure</title>
+  <meta name="description" content="An 8-question interactive quiz to test how well you can spot today's most common financial scams.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sergio17ss.github.io/finsecure-guide/privacy/quiz-are-you-scam-proof/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="../../index.html">FinSecure<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="../../fraud-scams/">Scams</a>
+      <a href="../../identity-theft/">Identity</a>
+      <a href="../../account-security/">Accounts</a>
+      <a href="../../financial-tools/">Tools</a>
+      <a href="../../about/">About</a>
+    </div>
+  </nav>
+</header>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="crumbs"><a href="../../index.html">Home</a> / Are You Scam-Proof?</div>
+    <h1>Are You Scam-Proof? Take the Quiz</h1>
+    <div class="byline"><div class="avatar">F</div><div>FinSecure Editorial · <span class="human">8 questions · ~2 minutes</span></div></div>
+  </div>
+</section>
+
+<article class="entry" id="quiz-app" style="max-width:640px">
+  <div id="q-container"></div>
+  <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+    <button class="btn btn-green" id="btn-next" onclick="next()" disabled>Next</button>
+    <button class="btn btn-ghost" id="btn-restart" onclick="reset()" style="display:none">Retake quiz</button>
+  </div>
+  <div id="result" class="tldr" style="display:none;margin-top:24px"></div>
+  <div class="disclosure" style="margin-top:34px">Educational purposes only — not financial or legal advice. Sources: FTC Consumer Advice, CFPB, IC3.</div>
+</article>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div class="brand">FinSecure<span class="dot">.</span></div>
+      <div class="foot-links">
+        <a href="../../about/">About</a>
+        <a href="../../about/editorial-guidelines/">Editorial guidelines</a>
+        <a href="../../privacy/">Privacy</a>
+        <a href="../../contact/">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const Q=[
+ {q:"Your bank sends an urgent text: 'Fraud attempt — reply YES to confirm it was you.' What do you do?",
+  o:["Reply YES immediately to protect your account","Call the number in the text","Call your bank using the number on your card or official app","Reply NO so they stop"],
+  c:2, e:"Real banks never ask you to confirm fraud via text reply. Call the official number from your card."},
+ {q:"A caller from 'your internet provider' says your router is hacked and needs a $250 gift card fix. They ask for remote access to 'confirm'. You...",
+  o:["Give remote access — better safe","Buy the gift card but don't share the code","Hang up — a real provider never demands gift cards","Ask them to email proof first"],
+  c:2, e:"Remote-access + gift cards is the classic tech-support scam script. Hang up."},
+ {q:"You're selling a couch on Facebook Marketplace. A buyer offers to pay via Zelle but requests the money back by 'accident' + a $50 fee. This is...",
+  o:["A normal refund transaction","A classic Zelle reversal scam — never reset payment apps","Fine if they send the fee first","OK as long as it's over $100"],
+  c:1, e:"Overpayment/refund requests on payment apps are almost always scams. Money sent is money gone."},
+ {q:"An email from your 'CEO' asks you to urgently buy gift cards for a client and email the codes. You should...",
+  o:["Do it fast — the boss needs it","Verify out-of-band: call the CEO's real number","Reply asking which client","Send the codes but mark them confidential"],
+  c:1, e:"Gift-card + urgency + authority = BEC (business email compromise) fraud."},
+ {q:"Which of these is the strongest sign of a phishing email?",
+  o:["A misspelled word","The sender address looks like support@yourbank-secure.net","It arrived at 3am","It includes your first name"],
+  c:1, e:"Lookalike domains are the #1 phishing red flag. Check the exact domain, not the display name."},
+ {q:"Your credit card company calls and asks you to 'verify' your full SSN to lift a block. You...",
+  o:["Read it — time sensitive","Refuse: your bank already has your SSN and never asks for it by phone","Give the last 4 digits only","Ask them to repeat your address first"],
+  c:1, e:"No legitimate bank cold-calls asking for your full SSN. Hang up and call the number on your card."},
+ {q:"Someone texts you a code to 'confirm a Zelle payment' you never made. Best action?",
+  o:["Forward the code to your bank's text line","Ignore it — codes are for the sender, never forward","Reply STOP","Call 911"],
+  c:1, e:"Forwarding one-time codes lets scammers hijack accounts. Never forward codes."},
+ {q:"A relative in 'trouble abroad' needs wire money urgently, calling from a new number. Your move?",
+  o:["Send it now — family first","Verify via a known contact (another family member) first","Ask for a photo","Send half and check later"],
+  c:1, e:"'Emergency' family scams are rampant. Verify with a second known contact before any transfer."}
+];
+let i=0, score=0, answered=false;
+const c=document.getElementById('q-container');
+function render(){
+ answered=false; document.getElementById('btn-next').disabled=true;
+ const q=Q[i];
+ let h='<div style="margin-bottom:18px"><span style="font-family:var(--font-m);font-size:12px;color:var(--muted)">QUESTION '+(i+1)+' / '+Q.length+'</span><h2 style="font-family:var(--font-d);font-size:21px;margin-top:8px">'+q.q+'</h2></div>';
+ q.o.forEach((opt,idx)=>{ h+='<div class="card" style="cursor:pointer;padding:14px 18px" onclick="pick('+idx+')" id="opt'+idx+'">'+opt+'</div>'; });
+ c.innerHTML=h;
+}
+function pick(idx){
+ if(answered) return; answered=true;
+ const q=Q[i]; const correct=idx===q.c; if(correct) score++;
+ for(let k=0;k<q.o.length;k++){
+   const el=document.getElementById('opt'+k);
+   if(k===q.c){ el.style.borderColor='var(--green)'; el.style.background='rgba(46,230,106,.08)'; }
+   else if(k===idx){ el.style.borderColor='var(--red)'; el.style.background='rgba(255,92,92,.08)'; }
+ }
+ const exp=document.createElement('p'); exp.style.cssText='margin-top:14px;font-size:15px;color:#dbe4f0;border-left:3px solid var(--blue);padding-left:14px'; exp.textContent=q.e;
+ c.appendChild(exp); document.getElementById('btn-next').disabled=false;
+}
+function next(){
+ i++;
+ if(i<Q.length){ render(); return; }
+ const r=document.getElementById('result'); r.style.display='block';
+ const pct=Math.round(score/Q.length*100);
+ let t='';
+ if(pct>=88) t='🛡️ Strong: '+score+'/'+Q.length+' — you spot most scripts. Keep 2FA on and credit frozen.';
+ else if(pct>=63) t='⚠️ Decent: '+score+'/'+Q.length+' — a few blind spots. Read our phishing and payment-scam guides.';
+ else t='🚨 At risk: '+score+'/'+Q.length+' — review our scam guides before dealing with unexpected calls or messages.';
+ r.innerHTML='<strong>Result: '+pct+'% scam-proof</strong><br>'+t+'<br><br><a class="btn btn-green" href="../../fraud-scams/">Read our scam guides →</a>';
+ document.getElementById('btn-next').style.display='none';
+ document.getElementById('btn-restart').style.display='inline-block';
+}
+function reset(){ i=0; score=0; document.getElementById('btn-next').style.display='inline-block'; document.getElementById('btn-restart').style.display='none'; document.getElementById('result').style.display='none'; render(); }
+render();
+</script>
+</body>
+</html>
