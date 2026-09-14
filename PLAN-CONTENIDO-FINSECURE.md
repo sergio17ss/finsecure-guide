@@ -20,7 +20,7 @@
 - [x] PUBLICADO: privacy/public-wifi-banking-safety — banca online en WiFi pública
 
 ## Siguientes temas (para el pipeline 02:00)
-- social-engineering/scams-major-banks-call-scripts — scripts de llamadas falsas
+- [x] PUBLICADO 14/09: social-engineering/scams-major-banks-call-scripts — scripts de llamadas falsas de bancos (vishing, caller ID spoofing, callbacks)
 - account-security/security-keys-vs-apps — claves de seguridad vs apps 2FA
 - identity-theft/bank-alerts-setup — configurar alertas de banco
 - fraud-scams/romance-scams-money — estafas románticas y dinero
