@@ -21,7 +21,7 @@
 
 ## Siguientes temas (para el pipeline 02:00)
 - [x] PUBLICADO 14/09: social-engineering/scams-major-banks-call-scripts — scripts de llamadas falsas de bancos (vishing, caller ID spoofing, callbacks)
-- account-security/security-keys-vs-apps — claves de seguridad vs apps 2FA
+- [x] PUBLICADO 15/09: account-security/security-keys-vs-apps — claves de seguridad vs apps 2FA (hardware keys vs authenticator apps, phishing resistance)
 - identity-theft/bank-alerts-setup — configurar alertas de banco
 - fraud-scams/romance-scams-money — estafas románticas y dinero
 - financial-tools/free-vs-paid-security — gratis vs de pago en seguridad
