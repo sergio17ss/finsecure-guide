@@ -1,6 +1,6 @@
 # PLAN-CONTENIDO-FINSECURE.md — Web C (ciberseguridad financiera, mercado EN/US)
 
-> Actualizado: 2026-09-16 · Ángulo: DEFENSIVO (fraud protection) · YMYL-safe
+> Actualizado: 2026-09-17 · Ángulo: DEFENSIVO (fraud protection) · YMYL-safe
 > PROHIBIDO: consejo de inversión, rentabilidades prometidas, hacking ofensivo.
 > Estilo: FinSecure (dark secops, Archivo/Inter/IBM Plex Mono), ingles natural US.
 > Producción: GitHub Pages (https://sergio17ss.github.io/finsecure-guide/) · Deploy IONOS: pendiente (paso producción→deploy).
@@ -23,7 +23,7 @@
 - [x] PUBLICADO 14/09: social-engineering/scams-major-banks-call-scripts — scripts de llamadas falsas de bancos (vishing, caller ID spoofing, callbacks)
 - [x] PUBLICADO 15/09: account-security/security-keys-vs-apps — claves de seguridad vs apps 2FA (hardware keys vs authenticator apps, phishing resistance)
 - [x] PUBLICADO 16/09: identity-theft/bank-alerts-setup — configurar alertas de banco (bank/card/credit alerts anti-fraude) + HUBs de sección creados (fraud-scams, identity-theft, account-security, financial-tools, social-engineering)
-- fraud-scams/romance-scams-money — estafas románticas y dinero
+- [x] PUBLICADO 17/09: fraud-scams/romance-scams-money — estafas románticas y dinero (romance scams, pig-butchering, red flags, reporting)
 - financial-tools/free-vs-paid-security — gratis vs de pago en seguridad
 - account-security/online-banking-regime — régimen semanal de seguridad
 - fraud-scams/check-cashier-fraud — fraude con cheques del banco
