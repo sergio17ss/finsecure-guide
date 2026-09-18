@@ -24,7 +24,7 @@
 - [x] PUBLICADO 15/09: account-security/security-keys-vs-apps — claves de seguridad vs apps 2FA (hardware keys vs authenticator apps, phishing resistance)
 - [x] PUBLICADO 16/09: identity-theft/bank-alerts-setup — configurar alertas de banco (bank/card/credit alerts anti-fraude) + HUBs de sección creados (fraud-scams, identity-theft, account-security, financial-tools, social-engineering)
 - [x] PUBLICADO 17/09: fraud-scams/romance-scams-money — estafas románticas y dinero (romance scams, pig-butchering, red flags, reporting)
-- financial-tools/free-vs-paid-security — gratis vs de pago en seguridad
+- [x] PUBLICADO 18/09: financial-tools/free-vs-paid-security — gratis vs de pago en seguridad (password managers, antivirus, VPNs, identity monitoring, security keys)
 - account-security/online-banking-regime — régimen semanal de seguridad
 - fraud-scams/check-cashier-fraud — fraude con cheques del banco
 - privacy/data-brokers-opt-out — salir de los data brokers
